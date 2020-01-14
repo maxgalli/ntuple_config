@@ -281,14 +281,12 @@ def DY_nlo_process_selection(channel):
 def ZTT_process_selection(channel):
     tt_cut = __get_ZTT_cut(channel)
     return Selection(name = "ZTT",
-                     cuts = [(tt_cut, "ztt_cut")],
-                     weights = DY_process_selection(channel).weights)
+                     cuts = [(tt_cut, "ztt_cut")])
 
 def ZTT_nlo_process_selection(channel):
     tt_cut = __get_ZTT_cut(channel)
     return Selection(name = "ZTT_nlo",
-                     cuts = [(tt_cut, "ztt_cut")],
-                     weights = DY_nlo_process_selection(channel).weights)
+                     cuts = [(tt_cut, "ztt_cut")])
 
 def __get_ZTT_cut(channel):
     if "mt" in channel:
@@ -354,14 +352,12 @@ def ZTT_embedded_process_selection(channel):
 def ZL_process_selection(channel):
     veto = __get_ZL_cut(channel)
     return Selection(name = "ZL",
-                     cuts = [("{} && {}".format(*veto), "dy_emb_and_ff_veto")],
-                     weights = DY_process_selection(channel).weights)
+                     cuts = [("{} && {}".format(*veto), "dy_emb_and_ff_veto")])
 
 def ZL_nlo_process_selection(channel):
     veto = __get_ZL_cut(channel)
     return Selection(name = "ZL_nlo",
-                     cuts = [("{} && {}".format(*veto), "dy_emb_and_ff_veto")],
-                     weights = DY_nlo_process_selection(channel).weights)
+                     cuts = [("{} && {}".format(*veto), "dy_emb_and_ff_veto")])
 
 def __get_ZL_cut(channel):
     if "mt" in channel:
@@ -385,14 +381,12 @@ def __get_ZL_cut(channel):
 def ZJ_process_selection(channel):
     veto = __get_ZJ_cut(channel)
     return Selection(name = "ZJ",
-                     cuts = [(__get_ZJ_cut(channel), 'dy_fakes')],
-                     weights = DY_process_selection(channel).weights)
+                     cuts = [(__get_ZJ_cut(channel), 'dy_fakes')])
 
 def ZJ_nlo_process_selection(channel):
     veto = __get_ZJ_cut(channel)
     return Selection(name = "ZJ_nlo",
-                     cuts = [(__get_ZJ_cut(channel), 'dy_fakes')],
-                     weights = DY_nlo_process_selection(channel).weights)
+                     cuts = [(__get_ZJ_cut(channel), 'dy_fakes')])
 
 def __get_ZJ_cut(channel):
     if "mt" in channel or "et" in channel:
@@ -417,8 +411,7 @@ def TTT_process_selection(channel):
     elif "mm" in channel:
         tt_cut = "gen_match_1==4 && gen_match_2==4"
     return Selection(name = "TTT",
-                     cuts = [(tt_cut, "ttt_cut")],
-                     weights = TT_process_selection(channel).weights)
+                     cuts = [(tt_cut, "ttt_cut")])
 
 
 def TTL_process_selection(channel):
@@ -438,8 +431,7 @@ def TTL_process_selection(channel):
         emb_veto = "!(gen_match_1==4 && gen_match_2==4)"
         ff_veto = "(1.0)"
     return Selection(name = "TTL",
-                     cuts = [("{} && {}".format(emb_veto,ff_veto), "tt_emb_and_ff_veto")],
-                     weights = TT_process_selection(channel).weights)
+                     cuts = [("{} && {}".format(emb_veto,ff_veto), "tt_emb_and_ff_veto")])
 
 
 def TTJ_process_selection(channel):
@@ -451,8 +443,7 @@ def TTJ_process_selection(channel):
     elif "em" in channel:
         ct = "0 == 1"
     return Selection(name = "TTJ",
-                     cuts = [(ct, "tt_fakes")],
-                     weights = TT_process_selection(channel).weights)
+                     cuts = [(ct, "tt_fakes")])
 
 
 def VVT_process_selection(channel):
@@ -467,8 +458,7 @@ def VVT_process_selection(channel):
     elif "mm" in channel:
         tt_cut = "gen_match_1==4 && gen_match_2==4"
     return Selection(name = "VVT",
-                     cuts = [(tt_cut, "vvt_cut")],
-                     weights = VV_process_selection(channel).weights)
+                     cuts = [(tt_cut, "vvt_cut")])
 
 
 def VVJ_process_selection(channel):
@@ -480,8 +470,7 @@ def VVJ_process_selection(channel):
     elif "em" in channel:
         ct = "0.0 == 1.0"
     return Selection(name = "VVJ",
-                     cuts = [(ct, "vv_fakes")],
-                     weights = VV_process_selection(channel).weights)
+                     cuts = [(ct, "vv_fakes")])
 
 
 def VVL_process_selection(channel):
@@ -501,26 +490,22 @@ def VVL_process_selection(channel):
         emb_veto = "!(gen_match_1==4 && gen_match_2==4)"
         ff_veto = "(1.0)"
     return Selection(name = "VVL",
-                     cuts = [("{} && {}".format(emb_veto,ff_veto), "tt_emb_and_ff_veto")],
-                     weights = VV_process_selection(channel).weights)
+                     cuts = [("{} && {}".format(emb_veto,ff_veto), "tt_emb_and_ff_veto")])
 
 
 def VH_process_selection(channel):
     return Selection(name = "VH",
-                     cuts = [("(htxs_stage1p1cat>=300)&&(htxs_stage1p1cat<=505)", "htxs_match")],
-                     weights = HTT_process_selection(channel).weights)
+                     cuts = [("(htxs_stage1p1cat>=300)&&(htxs_stage1p1cat<=505)", "htxs_match")])
 
 
 def WH_process_selection(channel):
     return Selection(name = "WH",
-                     cuts = [("(htxs_stage1p1cat>=300)&&(htxs_stage1p1cat<=305)", "htxs_match")],
-                     weights = HTT_process_selection(channel).weights)
+                     cuts = [("(htxs_stage1p1cat>=300)&&(htxs_stage1p1cat<=305)", "htxs_match")])
 
 
 def ZH_process_selection(channel):
     return Selection(name = "ZH",
-                     cuts = [("(htxs_stage1p1cat>=400)&&(htxs_stage1p1cat<=405)", "htxs_match")],
-                     weights = HTT_process_selection(channel).weights)
+                     cuts = [("(htxs_stage1p1cat>=400)&&(htxs_stage1p1cat<=405)", "htxs_match")])
 
 
 def ttH_process_selection(channel):
