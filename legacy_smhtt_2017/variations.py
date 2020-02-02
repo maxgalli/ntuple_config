@@ -1,3 +1,6 @@
+from ntuple_processor.utils import Cut
+from ntuple_processor.utils import Weight
+
 from ntuple_processor.variations import ChangeDataset
 from ntuple_processor.variations import ReplaceCut
 from ntuple_processor.variations import ReplaceWeight
@@ -5,6 +8,8 @@ from ntuple_processor.variations import RemoveCut
 from ntuple_processor.variations import RemoveWeight
 from ntuple_processor.variations import AddCut
 from ntuple_processor.variations import AddWeight
+
+same_sign = ReplaceCut("same_sign", "os", Cut("q_1*q_2>0", "ss"))
 
 prefiring_variations = [
     ReplaceWeight("CMS_prefiring_Run2017Up", "prefireWeight", Weight("prefiringweightup", "prefireWeight")),
