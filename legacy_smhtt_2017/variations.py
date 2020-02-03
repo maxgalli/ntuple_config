@@ -40,3 +40,9 @@ jet_es_variations = [
         ChangeDataset("CMS_scale_j_RelativeSample_Run2017", "jecUncRelativeSample")
         ]
 
+met_unclustered_variations = ChangeDataset("CMS_scale_met_unclustered", "metUnclusteredEn")
+
+recoil_resolution_variations = ChangeDataset("CMS_htt_boson_reso_met_Run2017", "metRecoilResolution")
+
+recoil_response_variations = ChangeDataset("CMS_htt_boson_scale_met_Run2017", "metRecoilResponse")
+
