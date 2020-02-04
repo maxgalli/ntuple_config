@@ -46,3 +46,44 @@ recoil_resolution_variations = ChangeDataset("CMS_htt_boson_reso_met_Run2017", "
 
 recoil_response_variations = ChangeDataset("CMS_htt_boson_scale_met_Run2017", "metRecoilResponse")
 
+jet_to_tau_fake_variations = [
+        AddWeight("CMS_htt_jetToTauFake_Run2017Up", Weight("max(1.0-pt_2*0.002, 0.6)", "jetToTauFake_weight")),
+        AddWeight("CMS_htt_jetToTauFake_Run2017Down", Weight("min(1.0+pt_2*0.002, 1.4)", "jetToTauFake_weight"))
+        ]
+
+ele_fake_es_1prong_variations = ChangeDataset("CMS_ZLShape_et_1prong_Run2017", "tauEleFakeEsOneProng")
+
+ele_fake_es_1prong1pizero_variations = ChangeDataset("CMS_ZLShape_et_1prong1pizero_Run2017", "tauEleFakeEsOneProngPiZeros")
+
+mu_fake_es_1prong_variations = ChangeDataset("CMS_ZLShape_mt_1prong_Run2017", "tauMuFakeEsOneProng")
+
+mu_fake_es_1prong1pizero_variations = ChangeDataset("CMS_ZLShape_mt_1prong1pizero_Run2017", "tauMuFakeEsOneProngPiZeros")
+
+lep_trigger_eff_variations_mt = [
+        AddWeight("CMS_eff_trigger_mt_Run2017Up", Weight("(1.0*(pt_1<=25)+1.02*(pt_1>25))", "trg_mt_eff_weight")),
+        AddWeight("CMS_eff_trigger_mt_Run2017Down", Weight("(1.0*(pt_1<=25)+0.98*(pt_1>25))", "trg_mt_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_mt_Run2017Up", Weight("(1.054*(pt_1<=25)+1.0*(pt_1>25))", "xtrg_mt_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_mt_Run2017Down", Weight("(0.946*(pt_1<=25)+1.0*(pt_1>25))", "xtrg_mt_eff_weight"))
+        ]
+
+lep_trigger_eff_variations_mt_emb = [
+        AddWeight("CMS_eff_trigger_emb_mt_Run2017Up", Weight("(1.0*(pt_1<=25)+1.02*(pt_1>25))", "trg_mt_eff_weight")),
+        AddWeight("CMS_eff_trigger_emb_mt_Run2017Down", Weight("(1.0*(pt_1<=25)+0.98*(pt_1>25))", "trg_mt_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_emb_mt_Run2017Up", Weight("(1.054*(pt_1<=25)+1.0*(pt_1>25))", "xtrg_mt_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_emb_mt_Run2017Down", Weight("(0.946*(pt_1<=25)+1.0*(pt_1>25))", "xtrg_mt_eff_weight"))
+        ]
+
+lep_trigger_eff_variations_et = [
+        AddWeight("CMS_eff_trigger_et_Run2017Up", Weight("(1.0*(pt_1<=28)+1.02*(pt_1>28))", "trg_et_eff_weight")),
+        AddWeight("CMS_eff_trigger_et_Run2017Down", Weight("(1.0*(pt_1<=28)+0.98*(pt_1>28))", "trg_et_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_et_Run2017Up", Weight("(1.054*(pt_1<=28)+1.0*(pt_1>28))", "xtrg_et_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_et_Run2017Down", Weight("(0.946*(pt_1<=28)+1.0*(pt_1>28))", "xtrg_et_eff_weight"))
+        ]
+
+lep_trigger_eff_variations_et_emb = [
+        AddWeight("CMS_eff_trigger_emb_et_Run2017Up", Weight("(1.0*(pt_1<=28)+1.02*(pt_1>28))", "trg_et_eff_weight")),
+        AddWeight("CMS_eff_trigger_emb_et_Run2017Down", Weight("(1.0*(pt_1<=28)+0.98*(pt_1>28))", "trg_et_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_emb_et_Run2017Up", Weight("(1.054*(pt_1<=28)+1.0*(pt_1>28))", "xtrg_et_eff_weight")),
+        AddWeight("CMS_eff_xtrigger_emb_et_Run2017Down", Weight("(0.946*(pt_1<=28)+1.0*(pt_1>28))", "xtrg_et_eff_weight"))
+        ]
+
