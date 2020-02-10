@@ -92,11 +92,11 @@ btag_eff_variations = ChangeDataset("CMS_htt_eff_b_Run2017", "btagEff", ["Up", "
 
 mistag_eff_variations = ChangeDataset("CMS_htt_mistag_b_Run2017", "btagMistag", ["Up", "Down"])
 
-tau_es_3prong_variations = ChangeDataset("CMS_scale_emb_t_3prong_Run2017", "tauEsThreeProng", ["Up", "Down"])
+emb_tau_es_3prong_variations = ChangeDataset("CMS_scale_emb_t_3prong_Run2017", "tauEsThreeProng", ["Up", "Down"])
 
-tau_es_1prong_variations = ChangeDataset("CMS_scale_emb_t_1prong_Run2017", "tauEsOneProng", ["Up", "Down"])
+emb_tau_es_1prong_variations = ChangeDataset("CMS_scale_emb_t_1prong_Run2017", "tauEsOneProng", ["Up", "Down"])
 
-tau_es_1prong1pizero_variations = ChangeDataset("CMS_scale_emb_t_1prong1pizero_Run2017", "tauEsOneProngOnePiZero", ["Up", "Down"])
+emb_tau_es_1prong1pizero_variations = ChangeDataset("CMS_scale_emb_t_1prong1pizero_Run2017", "tauEsOneProngOnePiZero", ["Up", "Down"])
 
 ggh_variations = []
 for unc in [
