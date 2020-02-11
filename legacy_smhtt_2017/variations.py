@@ -8,7 +8,7 @@ from ntuple_processor.variations import RemoveCut
 from ntuple_processor.variations import RemoveWeight
 from ntuple_processor.variations import AddCut
 from ntuple_processor.variations import AddWeight
-from ntuple_processor.variations import SquareAndRemoveWeight
+from ntuple_processor.variations import SquareWeight
 
 same_sign = ReplaceCut("same_sign", "os", Cut("q_1*q_2>0", "ss"))
 
@@ -171,7 +171,13 @@ for unc in [
     ggh_variations.append(AddWeight(unc + "Up", Weight("({})".format(unc), "{}_weight".format(unc))))
     ggh_variations.append(AddWeight(unc + "Down", Weight("(1.0/{})".format(unc), "{}_weight".format(unc))))
 
-zpt_variations = SquareAndRemoveWeight("CMS_htt_dyShape_Run2017", "zPtReweightWeight")
+zpt_variations = [
+        SquareWeight("CMS_htt_dyShape_Run2017Up", "zPtReweightWeight"),
+        RemoveWeight("CMS_htt_dyShape_Run2017Down", "zPtReweightWeight")
+        ]
 
-top_pt_variations = SquareAndRemoveWeight("CMS_htt_ttbarShape", "topPtReweightWeight")
+top_pt_variations = [
+        SquareWeight("CMS_htt_ttbarShapeUp", "topPtReweightWeight"),
+        RemoveWeight("CMS_htt_ttbarShapeDown", "topPtReweightWeight")
+        ]
 
