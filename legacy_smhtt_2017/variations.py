@@ -10,12 +10,9 @@ from ntuple_processor.variations import AddCut
 from ntuple_processor.variations import AddWeight
 from ntuple_processor.variations import SquareWeight
 
+
 same_sign = ReplaceCut("same_sign", "os", Cut("q_1*q_2>0", "ss"))
 
-prefiring_variations = [
-    ReplaceWeight("CMS_prefiring_Run2017Up", "prefireWeight", Weight("prefiringweightup", "prefireWeight")),
-    ReplaceWeight("CMS_prefiring_Run2017Down", "prefireWeight", Weight("prefiringweightdown", "prefireWeight")),
-]
 
 mc_tau_es_3prong_variations = [
         ChangeDataset("CMS_scale_mc_t_3prong_Run2017Up", "tauEsThreeProngUp"),
@@ -85,11 +82,6 @@ recoil_response_variations = [
         ChangeDataset("CMS_htt_boson_scale_met_Run2017Down", "metRecoilResponseDown")
         ]
 
-jet_to_tau_fake_variations = [
-        AddWeight("CMS_htt_jetToTauFake_Run2017Up", Weight("max(1.0-pt_2*0.002, 0.6)", "jetToTauFake_weight")),
-        AddWeight("CMS_htt_jetToTauFake_Run2017Down", Weight("min(1.0+pt_2*0.002, 1.4)", "jetToTauFake_weight"))
-        ]
-
 ele_fake_es_1prong_variations = [
         ChangeDataset("CMS_ZLShape_et_1prong_Run2017Up", "tauEleFakeEsOneProngUp"),
         ChangeDataset("CMS_ZLShape_et_1prong_Run2017Down", "tauEleFakeEsOneProngDown")
@@ -108,6 +100,37 @@ mu_fake_es_1prong_variations = [
 mu_fake_es_1prong1pizero_variations = [
         ChangeDataset("CMS_ZLShape_mt_1prong1pizero_Run2017Up", "tauMuFakeEsOneProngPiZerosUp"),
         ChangeDataset("CMS_ZLShape_mt_1prong1pizero_Run2017Down", "tauMuFakeEsOneProngPiZerosDown")
+        ]
+
+btag_eff_variations = [
+        ChangeDataset("CMS_htt_eff_b_Run2017Up", "btagEffUp"),
+        ChangeDataset("CMS_htt_eff_b_Run2017Down", "btagEffDown")
+        ]
+
+mistag_eff_variations = [
+        ChangeDataset("CMS_htt_mistag_b_Run2017Up", "btagMistagUp"),
+        ChangeDataset("CMS_htt_mistag_b_Run2017Down", "btagMistagDown")
+        ]
+
+emb_tau_es_3prong_variations = [
+        ChangeDataset("CMS_scale_emb_t_3prong_Run2017Up", "tauEsThreeProngUp"),
+        ChangeDataset("CMS_scale_emb_t_3prong_Run2017Down", "tauEsThreeProngDown")
+        ]
+
+emb_tau_es_1prong_variations = [
+        ChangeDataset("CMS_scale_emb_t_1prong_Run2017Up", "tauEsOneProngUp"),
+        ChangeDataset("CMS_scale_emb_t_1prong_Run2017Down", "tauEsOneProngDown")
+        ]
+
+emb_tau_es_1prong1pizero_variations = [
+        ChangeDataset("CMS_scale_emb_t_1prong1pizero_Run2017Up", "tauEsOneProngOnePiZeroUp"),
+        ChangeDataset("CMS_scale_emb_t_1prong1pizero_Run2017Down", "tauEsOneProngOnePiZeroDown")
+        ]
+
+
+jet_to_tau_fake_variations = [
+        AddWeight("CMS_htt_jetToTauFake_Run2017Up", Weight("max(1.0-pt_2*0.002, 0.6)", "jetToTauFake_weight")),
+        AddWeight("CMS_htt_jetToTauFake_Run2017Down", Weight("min(1.0+pt_2*0.002, 1.4)", "jetToTauFake_weight"))
         ]
 
 lep_trigger_eff_variations_mt = [
@@ -138,31 +161,6 @@ lep_trigger_eff_variations_et_emb = [
         AddWeight("CMS_eff_xtrigger_emb_et_Run2017Down", Weight("(0.946*(pt_1<=28)+1.0*(pt_1>28))", "xtrg_et_eff_weight"))
         ]
 
-btag_eff_variations = [
-        ChangeDataset("CMS_htt_eff_b_Run2017Up", "btagEffUp"),
-        ChangeDataset("CMS_htt_eff_b_Run2017Down", "btagEffDown")
-        ]
-
-mistag_eff_variations = [
-        ChangeDataset("CMS_htt_mistag_b_Run2017Up", "btagMistagUp"),
-        ChangeDataset("CMS_htt_mistag_b_Run2017Down", "btagMistagDown")
-        ]
-
-emb_tau_es_3prong_variations = [
-        ChangeDataset("CMS_scale_emb_t_3prong_Run2017Up", "tauEsThreeProngUp"),
-        ChangeDataset("CMS_scale_emb_t_3prong_Run2017Down", "tauEsThreeProngDown")
-        ]
-
-emb_tau_es_1prong_variations = [
-        ChangeDataset("CMS_scale_emb_t_1prong_Run2017Up", "tauEsOneProngUp"),
-        ChangeDataset("CMS_scale_emb_t_1prong_Run2017Down", "tauEsOneProngDown")
-        ]
-
-emb_tau_es_1prong1pizero_variations = [
-        ChangeDataset("CMS_scale_emb_t_1prong1pizero_Run2017Up", "tauEsOneProngOnePiZeroUp"),
-        ChangeDataset("CMS_scale_emb_t_1prong1pizero_Run2017Down", "tauEsOneProngOnePiZeroDown")
-        ]
-
 ggh_variations = []
 for unc in [
         "THU_ggH_Mig01", "THU_ggH_Mig12", "THU_ggH_Mu", "THU_ggH_PT120",
@@ -170,6 +168,13 @@ for unc in [
         "THU_ggH_qmtop"]:
     ggh_variations.append(AddWeight(unc + "Up", Weight("({})".format(unc), "{}_weight".format(unc))))
     ggh_variations.append(AddWeight(unc + "Down", Weight("(1.0/{})".format(unc), "{}_weight".format(unc))))
+
+
+prefiring_variations = [
+    ReplaceWeight("CMS_prefiring_Run2017Up", "prefireWeight", Weight("prefiringweightup", "prefireWeight")),
+    ReplaceWeight("CMS_prefiring_Run2017Down", "prefireWeight", Weight("prefiringweightdown", "prefireWeight")),
+]
+
 
 zpt_variations = [
         SquareWeight("CMS_htt_dyShape_Run2017Up", "zPtReweightWeight"),
@@ -180,4 +185,3 @@ top_pt_variations = [
         SquareWeight("CMS_htt_ttbarShapeUp", "topPtReweightWeight"),
         RemoveWeight("CMS_htt_ttbarShapeDown", "topPtReweightWeight")
         ]
-
