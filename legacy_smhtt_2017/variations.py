@@ -1,14 +1,14 @@
-from ntuple_processor.utils import Cut
-from ntuple_processor.utils import Weight
+from ntupro.utils import Cut
+from ntupro.utils import Weight
 
-from ntuple_processor.variations import ChangeDataset
-from ntuple_processor.variations import ReplaceCut
-from ntuple_processor.variations import ReplaceWeight
-from ntuple_processor.variations import RemoveCut
-from ntuple_processor.variations import RemoveWeight
-from ntuple_processor.variations import AddCut
-from ntuple_processor.variations import AddWeight
-from ntuple_processor.variations import SquareWeight
+from ntupro.variations import ChangeDataset
+from ntupro.variations import ReplaceCut
+from ntupro.variations import ReplaceWeight
+from ntupro.variations import RemoveCut
+from ntupro.variations import RemoveWeight
+from ntupro.variations import AddCut
+from ntupro.variations import AddWeight
+from ntupro.variations import SquareWeight
 
 
 same_sign = ReplaceCut("same_sign", "os", Cut("q_1*q_2>0", "ss"))

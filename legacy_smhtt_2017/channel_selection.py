@@ -1,4 +1,4 @@
-from ntuple_processor.utils import Selection
+from ntupro.utils import Selection
 
 def channel_selection(channel):
     if "mt" in channel:

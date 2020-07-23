@@ -1,4 +1,4 @@
-from ntuple_processor.utils import Histogram
+from ntupro.utils import Histogram
 
 variables = {
         'mt': {
